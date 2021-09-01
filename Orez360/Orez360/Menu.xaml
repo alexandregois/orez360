@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="Orez360.Menu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Orez360.Views">
+
+    <Shell.FlyoutHeader>
+        <Grid Padding="20" ColumnDefinitions="1*,1*">
+            <Image
+                Margin="10"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="logo" />
+            <Label
+                Grid.Column="1"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Text="Bem Vindo!"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+    <ShellContent
+        Title="Planos"
+        ContentTemplate="{DataTemplate views:Plano}"
+        Icon="baseline_layers" />
+    <ShellContent
+        Title="Meus Dados"
+        ContentTemplate="{DataTemplate views:Cliente}"
+        Icon="baseline_person" />
+    <ShellContent
+        Title="Sair"
+        ContentTemplate="{DataTemplate views:LogOut}"
+        Icon="outline_logout" />
+</Shell>

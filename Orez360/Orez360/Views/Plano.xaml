@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Orez360.ViewModels"
+             xmlns:converter="clr-namespace:Orez360.Libraries.Converters"
+             x:Name="PlanoPage"
+             x:Class="Orez360.Views.Plano">
+
+    <ContentPage.BindingContext>
+        <viewModels:PlanoViewModel/>
+    </ContentPage.BindingContext>
+    <Shell.TitleView>
+        <ContentView>
+            <Image Source="logo" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </ContentView>
+    </Shell.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ColorConverter x:Key="ColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Frame BackgroundColor="#5CBCC4">
+                <Label Text="ESCOLHA UM PLANO" TextColor="White" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+            </Frame>
+            <BoxView HeightRequest="35"/>
+            <CollectionView ItemsSource="{Binding planos}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="15">
+                            <Frame BackgroundColor="{Binding Cor, Converter={StaticResource ColorConverter}}" BorderColor="Transparent" Padding="1" HasShadow="False" CornerRadius="10" HeightRequest="100" x:Name="FramePlanos">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference PlanoPage}, Path=BindingContext.BuyCommand}" CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="4*, Auto" Padding="5">
+                                    <StackLayout Margin="10" VerticalOptions="Center">
+                                        <Label Text="{Binding Nome}" FontSize="Medium" TextColor="White" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Descricao}" TextColor="White"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Center">
+                                        <Label Text="{Binding FomatedValor, StringFormat='R$ {0}' }" FontSize="Large" TextColor="White" FontAttributes="Bold" HorizontalOptions="End"/>
+                                        <Label Text="MENSAIS" FontSize="Small" TextColor="White"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

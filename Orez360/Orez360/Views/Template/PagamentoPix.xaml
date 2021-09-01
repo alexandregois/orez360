@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Orez360.Views.Template.PagamentoPix">
+  <ContentView.Content>
+      <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
+          <Label Text="CHAVE PIX" FontAttributes="Bold" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center"/>
+
+            <Label Text="{Binding PlanoBuy.ChavePix}" TextColor="Black" FontSize="Large"/>
+
+            <Button Text="Copiar Chave"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HeightRequest="50"
+                    WidthRequest="250"
+                    HorizontalOptions="End"
+                    TextColor="White"
+                    BackgroundColor="#5CBCC4"
+                    BorderRadius="6"
+                    Margin="0,20,0,20"/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

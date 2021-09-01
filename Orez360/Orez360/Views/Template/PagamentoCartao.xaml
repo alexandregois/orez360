@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Orez360.Views.Template.PagamentoCartao">
+  <ContentView.Content>
+        <StackLayout>
+            <Label Text=" Número do Cartão" FontSize="Medium" TextColor="Black"  FontAttributes="Bold"/>
+            <Entry Text="{Binding PlanoBuy.NumeroCartao}" Placeholder="9999 9999 9999 9999" PlaceholderColor="Gray" FontSize="Small"/>
+
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                <StackLayout Orientation="Vertical">
+                    <Label Text=" Data de Validade" FontSize="Medium" TextColor="Black"  FontAttributes="Bold"/>
+                    <Entry Text="{Binding PlanoBuy.DataValidade}" Placeholder="MM / YY" PlaceholderColor="Gray" FontSize="Small"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Margin="20,0,0,20">
+                    <Label Text=" CVV" FontSize="Medium" TextColor="Black"  FontAttributes="Bold"/>
+                    <Entry Text="{Binding PlanoBuy.CVV}" Placeholder="999" PlaceholderColor="Gray" FontSize="Small"/>
+                </StackLayout>
+            </StackLayout>
+            <Label Text=" Nome do Titular" FontSize="Medium" TextColor="Black"  FontAttributes="Bold"/>
+            <Entry Text="{Binding PlanoBuy.NomeTitular}" PlaceholderColor="Gray" FontSize="Small"/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

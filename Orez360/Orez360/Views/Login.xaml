@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Orez360.ViewModels"
+             x:Class="Orez360.Views.Login"
+             BackgroundImageSource="greenbackground">
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" Padding="20" VerticalOptions="Center">
+            <Image HorizontalOptions="Center" Source="logo"/>
+
+            <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="Center">
+                <Label Text=" Telefone" FontSize="Subtitle" TextColor="White" FontAttributes="Bold"/>
+                <Entry x:Name="Telefone" Text="{Binding Telefone}" Placeholder="Digite seu telefone" 
+                    HeightRequest="40"
+                    WidthRequest="300"
+                    PlaceholderColor="White"
+                    FontSize="Small"
+                    TextColor="White"/>
+                <Label Text=" Senha" FontSize="Subtitle" TextColor="White" FontAttributes="Bold" Margin="0,10,0,0"/>
+                <Entry x:Name="Senha" Text="{Binding Senha}" Placeholder="Insira sua senha" 
+                     PlaceholderColor="White"
+                     HeightRequest="40" 
+                     FontSize="Small"
+                     IsPassword="True"
+                     TextColor="White"/>
+            </StackLayout>
+
+            <Button Command="{Binding SubmitCommand}" Text="Entrar"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    BackgroundColor="White"
+                    TextColor="#5CBCC4"
+                    BorderRadius="6"
+                    Margin="0,40,0,0"/>
+
+            <Grid ColumnDefinitions="1*,1*" HorizontalOptions="Center" Margin="50,0,0,0">
+                <Label Text="Não possui uma conta?"
+                   FontSize="Micro"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+                <Label Text="Cadastre-se já"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        Grid.Column="1"
+                        FontSize="14"
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CreateUser}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
